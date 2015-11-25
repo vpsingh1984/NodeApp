@@ -17,9 +17,15 @@ myApp.controller('AppCtrl', ['$scope', '$http', function($scope, $http){
 			console.log($scope.contact);
 			$http.post('/contactlist', $scope.contact).success(function(response){
 				console.log(response);
-				refresh();
-				$scope.contact = " ";
+				$scope.contactlist.push({
+		            name: $scope.name,
+		            email: $scope.email,
+		            number: $scope.fullName
+		        });
+				$scope.contact = '';
 			});
+			refresh();
+			
 		};
 
 		$scope.remove = function(id) {
@@ -48,3 +54,72 @@ myApp.controller('AppCtrl', ['$scope', '$http', function($scope, $http){
 		};
 
 }]);
+
+
+// myApp.controller('employeeCtrl', function($scope, $http) {
+
+//     $http.get('app/services/employeeDetails.json').success(function(response) {  
+//         $scope.listEmployee = []         ;
+//         $scope.listEmployee = response;
+//     });
+
+//     function getSelectedIndex(id){
+//         for (var i=0; i<$scope.listEmployee.length; i++){
+//             if($scope.listEmployee[i].id==id)
+//                 return i;
+//         }
+//     }
+
+//     $scope.selectEdit = function(id){
+//         var index = getSelectedIndex(id);
+//         var employee = $scope.listEmployee[index];
+//         $scope.id = employee.id;
+//         $scope.empid = employee.empid;
+//         $scope.fullName = employee.fullName;
+//         $scope.designation = employee.designation;
+//         $scope.email = employee.email;
+
+//         $('#uid').attr('readonly', true);
+//     }
+
+//     $scope.add = function(){
+//         $scope.listEmployee.push({
+//             id: $scope.id,
+//             empid: $scope.empid,
+//             fullName: $scope.fullName,
+//             designation: $scope.designation,
+//             email: $scope.email
+//         });
+//             $scope.id = '';
+//             $scope.empid = '';
+//             $scope.fullName = '';
+//             $scope.designation = '';
+//             $scope.email = '';
+//     }
+
+//     $scope.edit = function(){
+//         // alert('daf');
+//         var index = getSelectedIndex($scope.id);
+//         $scope.listEmployee[index].empid = $scope.empid;
+//         $scope.listEmployee[index].fullName = $scope.fullName;
+//         $scope.listEmployee[index].designation = $scope.designation;
+//         $scope.listEmployee[index].email = $scope.email;
+
+//         $scope.id = '';
+//         $scope.empid = '';
+//         $scope.fullName = '';
+//         $scope.designation = '';
+//         $scope.email = '';
+
+//         $('#uid').attr('readonly', false);
+//     }
+
+//     $scope.deleteRecord = function(id){
+//         var result = confirm("Are You Sure!");
+//         if (result===true){
+//             var index = getSelectedIndex(id);
+//             $scope.listEmployee.splice(index, 1);
+//         } 
+//     }
+    
+//  });

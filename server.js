@@ -5,12 +5,11 @@ var methodOverride = require("method-override");
 var path = require("path");
 var mongojs = require('mongojs');
 var db = mongojs('contactlist', ['contactlist']);
-var appConfig
-// var mongoose = require("mongoose");
+//var mongoose = require("mongoose");
 
 var app = express();
 
-// mongoose.connect('mongodb://vpsingh404:userprofile@ds043324.mongolab.com:43324/userprofile');
+//var db = mongoose.connect('mongodb://vpsingh404:userprofile@ds043324.mongolab.com:43324/userprofile');
 
 app.use(express.static(__dirname + "/public"));
 app.use(bodyParser.json());

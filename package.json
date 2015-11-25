@@ -11,13 +11,13 @@
   "dependencies": {
     "body-parser": "^1.14.1",
     "cookie-parser": "^1.4.0",
+    "socket.io": "~0.9.16",
+    "jade": "~0.31.2",
     "express": "~3.2.6",
     "http": "0.0.0",
-    "jade": "~0.31.2",
     "method-override": "^2.3.5",
-    "monk": "^1.0.1",
+    "mongoose": "^4.2.2",
     "multer": "^1.0.6",
-    "path": "^0.12.7",
-    "socket.io": "~0.9.16"
+    "path": "^0.12.7"
   }
 }

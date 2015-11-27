@@ -2,19 +2,18 @@
 
 
 var myApp = angular.module('profile', ['ngRoute']);
-
-myApp.config(['$routeProvider',
-  function($routeProvider) {
+//alert('vj');
+myApp.config(function($routeProvider) {
       $routeProvider.
           when('/', {
-              templateUrl: 'partials/userlist.html',
+              templateUrl: 'partials/contactlist.html',
               controller: 'AppCtrl'
           }).
-          when('/register', {
-              templateUrl: 'partials/register.html',
+          when('/userview', {
+              templateUrl: 'partials/userview.html',
 							controller: 'AppCtrl'
           }).
           otherwise({
               redirectTo: '/'
           });
-}]);
+});

@@ -1,37 +1,42 @@
-<div class="container" ng-controller="crudCtrl">
-	<h1>Contact List</h1>
-	<div class="alert alert-danger alert-dismissable" role="alert" ng-show="blankMsg"> <button type="button" class="close" aria-label="Close" ng-click="blankMsg=false"><span aria-hidden="true">×</span></button>  <ul class="list-unstyled"><li >Field can't be blank</li></ul> </div>
-	<table class="table">
-		<thead>
-			<tr>
-				<th>Name</th>
-				<th>Email</th>
-				<th>Number</th>
-				<th>Actions</th>
-			</tr>
-		</thead>
-		<tbody>
-			<tr>
-				<form name="crudfrm"  >
-					<td><input name="name" type="text" class="form-control" ng-model="contact.name" required /></td>
-					<td><input name="email" type="text" class="form-control" ng-model="contact.email" required /></td>
-					<td><input name="number" type="text" class="form-control" ng-model="contact.number" required /></td>
+<div class="container" ng-controller="AppCtrl">
+	<div class="col-sm-12">
+		<table class="table table-border">
+			<thead>
+				<tr>
+					<th>Name </th>
+					<th>Email </th>
+					<th>Number </th>
+					<th>Actions</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td><input type="text" class="form-control" ng-model="contact.name" ng-readonly="false"></td>
+					<td><input type="text" class="form-control" ng-model="contact.email"></td>
+					<td><input type="text" class="form-control" ng-model="contact.number"></td>
 					<td>
-						<button type="submit" class="btn btn-primary" ng-click="addContact()">Add Record</button>
-						<button type="button" class="btn btn-info" ng-click="update()">Update</button>
-						<button type="button" class="btn btn-info" ng-click="deselect()">Clear</button>
+						<button class="btn btn-primary" ng-click="addContact()">Add Contact</button>
+						<button class="btn btn-info" ng-click="update()">Update</button>
+						<button class="btn btn-info" ng-click="clear()">Clear</button>
 					</td>
 				</tr>
-				<tr ng-repeat="contact in contactlist">
-					<td>{{contact.name}}</td>
-					<td>{{contact.email}}</td>
-					<td>{{contact.number}}</td>
-					<td>
-						<button class="btn btn-danger btn-sm" ng-click="remove(contact._id)">Remove</button>
-						<button class="btn btn-warning btn-sm" ng-click="edit(contact._id)">Edit</button>
-					</td>
-				</tr>
-			</form>
-		</tbody>
-	</table>
+			</tbody>
+		</table>
+	</div>
+	<div class="col-sm-12" style="margin-top:0px;">
+		<h3>Users Contact List</h3>
+		<table class="table table-border">
+			<tbody>
+				<tr ng-repeat= "contact in contactlist">
+		    	<td>{{contact.name}}</td>
+		    	<td>{{contact.email}}</td>
+		      <td>{{contact.number}}</td>
+		      <td>
+		      	<button class="btn btn-danger" ng-click="remove(contact._id)">Remove</button>
+		      	<button class="btn btn-warning" ng-click="edit(contact._id)">Edit</button>
+		      </td>
+		    </tr>
+			</tbody>
+		</table>
+	</div>
 </div>

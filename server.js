@@ -12,6 +12,10 @@ var app = express();
 //var db = mongoose.connect('mongodb://vpsingh404:userprofile@ds043324.mongolab.com:43324/userprofile');
 
 app.use(express.static(__dirname + "/public"));
+//var routes = require('./controller/appConfig.js');
+
+//app.use(routes);
+
 app.use(bodyParser.json());
 
 app.get('/contactlist', function(req, res){
